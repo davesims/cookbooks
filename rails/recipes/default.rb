@@ -9,6 +9,7 @@ package "libxslt"
 package "libxslt-devel"
 package "rubygem-nokogiri"
 package "postgresql-server"
+package "postgresql-devel"
 
 common = {:name => "dentonator", :app_root => "/u/apps/dentonator"}
 
