@@ -5,7 +5,7 @@ service 'nginx' do
   action [:enable, :start]
 end
 
-directory "/etc/sites/sites_available" do
+directory "/etc/nginx/sites_available" do
   mode 0644
   recursive true
   action :create
