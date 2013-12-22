@@ -22,3 +22,9 @@ end
   end
 end
 
+template "#{node[:unicorn][:config_path]}/#{common[:name]}.conf.rb" do
+  mode 0644
+  source "unicorn.conf.erb"
+  variables common
+end
+
