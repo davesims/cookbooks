@@ -2,6 +2,7 @@ include_recipe "nginx"
 include_recipe "unicorn"
 
 gem_package "bundler"
+package "rubygem-nokogiri"
 
 common = {:name => "dentonator", :app_root => "/u/apps/dentonator"}
 
