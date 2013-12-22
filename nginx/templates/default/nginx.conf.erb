@@ -14,7 +14,7 @@
 
 # you generally only need one nginx worker unless you're serving
 # large amounts of static files which require blocking disk reads
-worker_processes 1;
+worker_processes <%= @node[:nginx][:worker_processes] %>;
 
 # in order to free some CPU cycles, we will adjust a timer resolution.
 # Basically, it means how often nginx calls  gettimeoftheday() function
