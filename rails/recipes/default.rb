@@ -28,5 +28,12 @@ template "#{node[:unicorn][:config_path]}/#{common[:name]}.conf.rb" do
   variables common
 end
 
-nginx_config_path = "/etc/nginx/sites_available"
+nginx_config_path = "/etc/nginx/sites_available/#{common[:name]}.conf"
+
+template nginx_config_path do 
+  mode 0644
+  source "nginx.conf.erb"
+  variables common.merge(:server_names => "dentonator.com")
+  notifies :reload, "service[nginx]"
+end
 
