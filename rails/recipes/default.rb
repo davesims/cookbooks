@@ -8,6 +8,7 @@ common = {:name => "dentonator", :app_root => "/u/apps/dentonator"}
 dirctory common[:app_root] do 
   recursive true
   owner "root"
+  action :create
 end
 
 dirctory common[:app_root]+"/current" do 
