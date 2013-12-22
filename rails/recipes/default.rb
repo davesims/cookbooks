@@ -6,6 +6,7 @@ gem_package "bundler"
 common = {:name => "dentonator", :app_root => "/u/apps/dentonator"}
 
 dirctory common[:app_root] do 
+  recursive true
   owner "root"
 end
 
