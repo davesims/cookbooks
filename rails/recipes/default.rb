@@ -2,7 +2,11 @@ include_recipe "nginx"
 include_recipe "unicorn"
 
 gem_package "bundler"
+package "ruby-devel"
 package "libxml2"
+package "libxml2-devel"
+package "libxslt"
+package "libxslt-devel"
 package "rubygem-nokogiri"
 
 common = {:name => "dentonator", :app_root => "/u/apps/dentonator"}
