@@ -1,39 +1,9 @@
-# This is example contains the bare mininum to get nginx going with
-# Unicorn or Rainbows! servers.  Generally these configuration settings
-# are applicable to other HTTP application servers (and not just Ruby
-# ones), so if you have one working well for proxying another app
-# server, feel free to continue using it.
-#
-# The only setting we feel strongly about is the fail_timeout=0
-# directive in the "upstream" block.  max_fails=0 also has the same
-# effect as fail_timeout=0 for current versions of nginx and may be
-# used in its place.
-#
-# Users are strongly encouraged to refer to nginx documentation for more
-# details and search for other example configs.
-
-# you generally only need one nginx worker unless you're serving
-# large amounts of static files which require blocking disk reads
 worker_processes <%= @node[:nginx][:worker_processes] %>;
 
-# in order to free some CPU cycles, we will adjust a timer resolution.
-# Basically, it means how often nginx calls  gettimeoftheday() function
-# (no default value, nginx documentation provides 100ms as an example):
 timer_resolution 500ms;
 
-# We want to be able to open as many files as possible within a single
-# nginx worker process without crashing, so we’re increasing this number
-# (default is 1024, you might also want to increase fs.file-max sysctl param):
 worker_rlimit_nofile 10240;
 
-# drop privileges, root is needed on most systems for binding to port 80
-# (or anything < 1024).  Capability-based security may be available for
-# your system and worth checking out so you won't need to be root to
-# start nginx to bind on 80
-# user nobody nogroup; # for systems with a "nogroup"
-# user nobody nobody; # for systems with "nobody" as a group instead
-
-# Feel free to change all paths to suite your needs here, of course
 # pid /path/to/nginx.pid;
 error_log /var/log/nginx.error.log;
 
