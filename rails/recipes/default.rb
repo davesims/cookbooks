@@ -28,3 +28,5 @@ template "#{node[:unicorn][:config_path]}/#{common[:name]}.conf.rb" do
   variables common
 end
 
+nginx_config_path = "/etc/nginx/sites_available"
+
