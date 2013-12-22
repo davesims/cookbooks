@@ -6,11 +6,11 @@ gem_package "bundler"
 common = {:name => "dentonator", :app_root => "/u/apps/dentonator"}
 
 dirctory common[:app_root] do 
-  owner "deploy"
+  owner "root"
 end
 
 dirctory common[:app_root]+"/current" do 
-  owner "deploy"
+  owner "root"
 end
 
 %w(config log tmp socket pids).each do |dir|
