@@ -1,5 +1,6 @@
 include_recipe "nginx"
 include_recipe "unicorn"
+include_recipe "postgresql"
 
 gem_package "bundler"
 package "ruby-devel"
@@ -8,8 +9,6 @@ package "libxml2-devel"
 package "libxslt"
 package "libxslt-devel"
 package "rubygem-nokogiri"
-package "postgresql-server"
-package "postgresql-devel"
 
 common = {:name => "dentonator", :app_root => "/u/apps/dentonator"}
 
